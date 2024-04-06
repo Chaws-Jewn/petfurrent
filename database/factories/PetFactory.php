@@ -19,7 +19,9 @@ class PetFactory extends Factory
         return [
             'type' => $this->faker->numberBetween(0, 1),
             'breed' => $this->faker->word(),
-            'pet_name' => $this->faker->firstName(),
+            'name' => $this->faker->firstName(),
+            'gender' => $this->faker->numberBetween(0, 1),
+            'description' => $this->faker->text(),
             'image' => $this->faker->filePath(),
         ];
     }
