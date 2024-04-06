@@ -13,8 +13,19 @@ return new class extends Migration
     {
         Schema::create('adoptions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('pet_id')->references('id')->on('pets');
+
+            // Other than default user account owner
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email_address')->unique();
+            $table->string('phone_number');
+            $table->string('house_number');
+            $table->string('street');
+            $table->string('city');
+            $table->integer('status');
+            $table->string('user_image');
             $table->timestamp('adoption_stamp')->useCurrent();
         });
     }
