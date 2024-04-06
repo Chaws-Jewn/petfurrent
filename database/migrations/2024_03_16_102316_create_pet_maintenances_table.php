@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pet_maintenances', function (Blueprint $table) {
             $table->id();
             $table->foreignid('pet_id')->references('id')->on('pets')->onDelete('CASCADE');
-            $table->integer('type');
+            $table->string('type');
             $table->date('date');
             $table->text('notes')->nullable();
             $table->timestamps();
