@@ -17,14 +17,14 @@ return new class extends Migration
             $table->foreignId('pet_id')->references('id')->on('pets');
 
             // Other than default user account owner
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email_address')->unique();
-            $table->string('phone_number');
-            $table->string('house_number');
-            $table->string('street');
-            $table->string('city');
-            $table->integer('status');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('email_address')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('house_number')->nullable();
+            $table->string('street')->nullable();
+            $table->string('city')->nullable();
+            $table->integer('status')->default(0);
             $table->string('user_image');
             $table->timestamp('adoption_stamp')->useCurrent();
         });
