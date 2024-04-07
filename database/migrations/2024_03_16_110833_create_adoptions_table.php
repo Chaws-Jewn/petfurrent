@@ -19,13 +19,13 @@ return new class extends Migration
             // Other than default user account owner
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('email_address')->unique();
+            $table->string('email_address');
             $table->string('phone_number');
             $table->string('house_number');
             $table->string('street');
             $table->string('city');
-            $table->integer('status');
-            $table->string('user_image');
+            $table->integer('status')->default(0);
+            $table->string('user_image')->nullable();
             $table->timestamp('adoption_stamp')->useCurrent();
         });
     }
