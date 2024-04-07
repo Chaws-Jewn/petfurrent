@@ -10,7 +10,7 @@ class UserController extends Controller
     public function fetchAll() {
         $users = User::all();
 
-        return $users;
+        return view('user', ['users' => $users]);
     }
 
     public function fetch(int $id) {

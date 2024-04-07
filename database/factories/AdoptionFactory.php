@@ -19,6 +19,13 @@ class AdoptionFactory extends Factory
         return [
             'user_id' => $this->faker->numberBetween(1, 10),
             'pet_id' => $this->faker->numberBetween(1, 10),
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'email_address' => $this->faker->email(),
+            'phone_number' => $this->faker->phoneNumber(),
+            'house_number' => $this->faker->numberBetween(1, 30),
+            'street' => $this->faker->streetName(),
+            'city' => $this->faker->city()
         ];
     }
 }
