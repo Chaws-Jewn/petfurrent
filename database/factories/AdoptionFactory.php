@@ -17,7 +17,7 @@ class AdoptionFactory extends Factory
     public function definition(): array
     {
         return [
-            'customer_id' => $this->faker->numberBetween(1, 10),
+            'user_id' => $this->faker->numberBetween(1, 10),
             'pet_id' => $this->faker->numberBetween(1, 10)
         ];
     }

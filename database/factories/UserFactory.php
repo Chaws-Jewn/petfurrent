@@ -32,7 +32,6 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'phone_number' => fake()->phoneNumber(),
             'birthdate' => fake()->date(),
-            'address' => fake()->address(),
             'remember_token' => Str::random(10),
         ];
     }
