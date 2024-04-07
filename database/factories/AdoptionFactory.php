@@ -19,7 +19,6 @@ class AdoptionFactory extends Factory
         return [
             'user_id' => $this->faker->numberBetween(1, 10),
             'pet_id' => $this->faker->numberBetween(1, 10),
-            'user_image' => $this->faker->filePath()
         ];
     }
 }

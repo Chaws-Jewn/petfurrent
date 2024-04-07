@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
         PetCareDetails::factory(10)->create();
         PetCareImage::factory(10)->create();
         PetMaintenance::factory(10)->create();
-        Adoption::factory(10)->create();
-        
+        Adoption::factory(10)->create();    
     }
 }

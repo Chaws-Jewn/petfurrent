@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('type');
             $table->string('breed', 100);
-            $table->string('pet_name', 100);
+            $table->string('name', 100);
+            $table->integer('gender')->nullable();
+            $table->text('description');
             $table->string('image', 100);
             $table->timestamps();
             $table->softDeletes();
