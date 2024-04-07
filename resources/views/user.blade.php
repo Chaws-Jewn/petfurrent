@@ -10,15 +10,10 @@
             body {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
-            th {
-                width: auto;
-            }
             td, th {
                 border: 1px solid darkslategrey;
-            }
-            .table-header {
-                border: 2px solid black;
-                width: 100%;
+                width: 500px;
+                text-align: center;
             }
         </style>
     </head>
@@ -29,41 +24,81 @@
         <form method="POST" action="{{ route('users.add') }}">
             @csrf <!-- CSRF Protection -->
 
-            <!-- Input field for username -->
             <div>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" value="{{ old('username') }}">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email">
             </div>
         
-            <!-- Input field for password -->
             <div>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
             </div>
+            
+            <div>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name">
+            </div>
+            
+            <div>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name">
+            </div>
+            
+            <div>
+                <label for="phone_number">Phone Number:</label>
+                <input type="text" id="phone_number" name="phone_number">
+            </div>
+            
+            <div>
+                <label for="birthdate">Birthdate:</label>
+                <input type="date" id="birthdate" name="birthdate">
+            </div>
         
-            <!-- Submit button -->
             <div>
                 <button type="submit">Submit</button>
             </div>
         </form><hr>
 
         <h3>Update Form</h3>
-        <form method="POST" action="{{ route('users.add') }}">
+        <form method="POST" action="{{ route('users.update') }}">
             @csrf <!-- CSRF Protection -->
-
-            <!-- Input field for username -->
+            @method('PUT')
+            
             <div>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" value="{{ old('username') }}">
+                <label for="id">ID (ID of user to be updated):</label>
+                <input type="text" id="id" name="id">
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email">
             </div>
         
-            <!-- Input field for password -->
             <div>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
             </div>
-        
-            <!-- Submit button -->
+            
+            <div>
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name">
+            </div>
+            
+            <div>
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name">
+            </div>
+            
+            <div>
+                <label for="phone_number">Phone Number:</label>
+                <input type="text" id="phone_number" name="phone_number">
+            </div>
+            
+            <div>
+                <label for="birthdate">Birthdate:</label>
+                <input type="date" id="birthdate" name="birthdate">
+            </div>
+            
             <div>
                 <button type="submit">Submit</button>
             </div>
@@ -83,24 +118,35 @@
             </div>
         </form><hr>
 
-        <table>
-            <tr class="table-header">
-                <th class="big-col">Name</th>
-                <th class="big-col">Email</th>
-                <th>Phone Number</th>
-                <th>Birthdate</th>
-            </tr>
+        @if (count($users) > 0)
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Birthdate</th>
+                    </tr>
+                </thead>
 
-            @foreach ($users as $user)
-            <tr class="table-body">
-                <td>{{ $user->first_name }} {{ $user->last_name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->phone_number }}</td>
-                <td>{{ $user->birthdate }}</td>
-            </tr>
-            @endforeach
+                <tbody>
+                    @foreach ($users as $user)
+                    <tr>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->first_name }} {{ $user->last_name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->phone_number }}</td>
+                        <td>{{ $user->birthdate }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
 
-        </table>
+            </table>
+        @else
+            <h3>NO USERS FOUND</h3>
+        @endif
+        
         
     </body>
 </html>

@@ -20,17 +20,28 @@ class UserController extends Controller
     }
 
     public function add(Request $request) {
-        // add function
+        $model = new User();
+
+        $model->fill($request->all());
+        $model->save();
+
+        return view('user', ['users' => User::all()]);
     }
 
-    public function update(Request $request, int $id) {
-        // update function
+    public function update(Request $request) {
+        
+        $model = User::findOrFail($request->id);
+
+        $model->fill($request->all());
+        $model->save();
+        
+        return view('user', ['users' => User::all()]);
     }
 
     public function delete(Request $request) {
         $user = User::findOrFail($request->id);
 
         $user->delete();
-        return response()->json(['Status' => 'User Deleted'], 200);
+        return view('user', ['users' => User::all()]);
     }
 }
