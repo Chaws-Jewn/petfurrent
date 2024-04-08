@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PetController;
 use App\Http\Controllers\AdoptionController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function() {
@@ -19,6 +21,12 @@ Route::post('/users/add', [UserController::class, 'add'])->name('users.add');
 Route::put('/users/update', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/delete', [UserController::class, 'delete'])->name('users.delete');
 
+// Pet Routes
+Route::get('/pets', [PetController::class, 'fetchAll'])->name('pets.fetchAll');
+Route::get('/pet/{id}', [UserController::class, 'fetch'])->name('pets.fetch');
+Route::post('/pets/add', [UserController::class, 'add'])->name('pets.add');
+Route::put('/pets/update', [UserController::class, 'update'])->name('pets.update');
+Route::delete('/pets/delete', [UserController::class, 'delete'])->name('pets.delete');
 
 // Adoption Routes
 Route::get('/adoptions', [AdoptionController::class, 'fetchAll'])->name('adoptions.fetchAll');
