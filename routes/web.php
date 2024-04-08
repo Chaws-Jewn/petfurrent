@@ -24,5 +24,5 @@ Route::delete('/users/delete', [UserController::class, 'delete'])->name('users.d
 Route::get('/adoptions', [AdoptionController::class, 'fetchAll'])->name('adoptions.fetchAll');
 Route::get('/adoption/{id}', [AdoptionController::class, 'fetch'])->name('adoptions.fetch');
 Route::post('/adoptions/add', [AdoptionController::class, 'add'])->name('adoptions.add');
-Route::put('/adoptions/update', [AdoptionController::class, 'update'])->name('adoptions.update');
+Route::patch('/adoptions/update', [AdoptionController::class, 'update'])->name('adoptions.update');
 Route::delete('/adoptions/delete', [AdoptionController::class, 'delete'])->name('adoptions.delete');

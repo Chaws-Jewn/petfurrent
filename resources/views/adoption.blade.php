@@ -89,9 +89,9 @@
         </form><hr>
 
         <h3>Update Form</h3>
-        <form method="POST" action="{{ route('adoptions.update') }}">
+        <form method="POST" action="{{ route('adoptions.update') }}" enctype="multipart/form-data">
             @csrf <!-- CSRF Protection -->
-            @method('PUT')
+            @method('PATCH')
                     
             <div>
                 <label for="id">Edit ID:</label>

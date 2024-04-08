@@ -48,20 +48,20 @@ class AdoptionController extends Controller
 
             $ext1 = $request->file('front_id')->extension();
             $ext2 = $request->file('back_id')->extension();
-        }
 
-                // Check file extension and raise error
-                if (!in_array($ext1, ['png', 'jpg', 'jpeg']) || !in_array($ext2, ['png', 'jpg', 'jpeg'])) {
-                    return view('error', ['error' => 'Invalid image format. Only PNG, JPG, and JPEG formats are allowed.']);
-                }
+            // Check file extension and raise error
+            if (!in_array($ext1, ['png', 'jpg', 'jpeg']) || !in_array($ext2, ['png', 'jpg', 'jpeg'])) {
+                return view('error', ['error' => 'Invalid image format. Only PNG, JPG, and JPEG formats are allowed.']);
+            }
 
-                // Store image and save path
-                $path = $request->file('front_id')->store('adoption_ids', 'public');
-                $model->front_id = $path;
+            // Store image and save path
+            $path = $request->file('front_id')->store('adoption_ids', 'public');
+            $model->front_id = $path;
 
-                
-                $path = $request->file('back_id')->store('adoption_ids', 'public');
+            
+            $path = $request->file('back_id')->store('adoption_ids', 'public');
                 $model->back_id = $path;
+        }
 
         $model->save();
                 
@@ -72,10 +72,36 @@ class AdoptionController extends Controller
         
         $model = Adoption::findOrFail($request->id);
 
-        $model->fill($request->all());
+        $request->validate([
+            'front_id' => 'required|image|mimes:jpeg,png,jpg|max:4096', 
+            'back_id' => 'required|image|mimes:jpeg,png,jpg|max:4096'
+        ]);
+
+        if($request->hasFile('front_id') && $request->hasFile('back_id')) {
+
+            $model->update($request->except(['front_id', 'back_id']));
+            
+            $ext1 = $request->file('front_id')->extension();
+            $ext2 = $request->file('back_id')->extension();
+
+            // Check file extension and raise error
+            if (!in_array($ext1, ['png', 'jpg', 'jpeg']) || !in_array($ext2, ['png', 'jpg', 'jpeg'])) {
+                return view('error', ['error' => 'Invalid image format. Only PNG, JPG, and JPEG formats are allowed.']);
+            }
+
+            // Store image and save path
+            $path = $request->file('front_id')->store('adoption_ids', 'public');
+            $model->front_id = $path;
+            
+            $path = $request->file('back_id')->store('adoption_ids', 'public');
+            $model->back_id = $path;
+        } else {
+            $model->fill($request->all());
+        }
+
         $model->save();
         
-        return view('adoption', ['adoptions' => Adoption::all()]);
+        return redirect(route('adoptions.fetchAll'));
     }
 
     public function delete(Request $request) {
