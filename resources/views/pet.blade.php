@@ -7,11 +7,37 @@
 
         <title>PetFurrent</title>
         
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            td, th {
+                border: 1px solid darkslategrey;
+                width: 500px;
+                text-align: center;
+            }
+            .table-image {
+                height: 100px;
+                width: 200px;
+            }
+            .links {
+                display: flex;
+            }
+            .link {
+                font-weight: 700;
+                font-size: 20px;
+                margin-right: 40px;
+            }
+
+            .adoption-form {
+                display: inline;
+            }
+        </style>
     </head>
 
     <body>
         <div class="links">
-            <a href="{{ route('pets.fetchAll') }}"><button class="link">pets</button></a>
+            <a href="{{ route('users.fetchAll') }}"><button class="link">Users</button></a>
             <a href="{{ route('adoptions.fetchAll')}}"><button class="link">Adoptions</button></a>
             <a href="{{ route('pets.fetchAll')}}"><button class="link">Pets</button></a>
         </div>
@@ -139,7 +165,7 @@
                         <td>{{ $pet->name }}</td>
                         <td>{{ $pet->gender }}</td>
                         <td>{{ $pet->description }}</td>
-                        <td><img class="table-image" src="{{ asset($pet->image) }}" alt="iamge"></td>
+                        <td><img class="table-image" src="{{ asset($pet->image) }}" alt="image"></td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -6,6 +6,32 @@
         
         <link rel="stylesheet" type="text/css" href="css/adoption.css">
 
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            td, th {
+                border: 1px solid darkslategrey;
+                width: 500px;
+                text-align: center;
+            }
+            .table-image {
+                height: 100px;
+                width: 200px;
+            }
+            .links {
+                display: flex;
+            }
+            .link {
+                font-weight: 700;
+                font-size: 20px;
+                margin-right: 40px;
+            }
+
+            .adoption-form {
+                display: inline;
+            }
+        </style>
         <title>PetFurrent</title>
     </head>
 
