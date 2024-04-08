@@ -118,7 +118,7 @@
             </div>
         </form><hr>
 
-        @if (count($users) > 0)
+        @if (!empty($users))
             <table>
                 <thead>
                     <tr>
@@ -147,6 +147,8 @@
             <h3>NO USERS FOUND</h3>
         @endif
         
-        
+        <a href="{{ route('home')}}">
+            <button>Go to Home</button>
+        </a>
     </body>
 </html>

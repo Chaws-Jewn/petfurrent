@@ -9,10 +9,11 @@ class UserController extends Controller
 {
     public function fetchAll() {
         $users = User::all();
-
+        if ($users->isEmpty()) {
         return view('user', ['users' => $users]);
     }
-
+    return view('user', ['users' => $users]);
+}
     public function fetch(int $id) {
         $user = User::findOrFail($id);
 
