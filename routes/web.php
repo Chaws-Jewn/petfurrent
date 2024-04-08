@@ -4,10 +4,14 @@ use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdoptionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function() {
     return view('user');
 });
+
+// Route for the home page
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Error Routes
 Route::get('/error', [ErrorController::class, 'display'])->name('error');
