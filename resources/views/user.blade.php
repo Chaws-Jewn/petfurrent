@@ -15,10 +15,23 @@
                 width: 500px;
                 text-align: center;
             }
+            .links {
+                display: flex;
+            }
+            .link {
+                font-weight: 700;
+                font-size: 20px;
+                margin-right: 40px;
+            }
         </style>
     </head>
 
     <body>
+        <div class="links">
+            <a href="{{ route('users.fetchAll') }}"><button class="link">Users</button></a>
+            <a href="{{ route('adoptions.fetchAll')}}"><button class="link">Adoptions</button></a>
+        </div>
+
         <h1>User</h1>
         <h3>Insert Form</h3>
         <form method="POST" action="{{ route('users.add') }}">

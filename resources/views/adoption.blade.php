@@ -19,10 +19,23 @@
                 height: 100px;
                 width: 200px;
             }
+            .links {
+                display: flex;
+            }
+            .link {
+                font-weight: 700;
+                font-size: 20px;
+                margin-right: 40px;
+            }
         </style>
     </head>
 
     <body>
+        <div class="links">
+            <a href="{{ route('users.fetchAll') }}"><button class="link">Users</button></a>
+            <a href="{{ route('adoptions.fetchAll')}}"><button class="link">Adoptions</button></a>
+        </div>
+
         <h1>Adoption</h1>
         <h3>Insert Form</h3>
         <form method="POST" action="{{ route('adoptions.add') }}" enctype="multipart/form-data">
@@ -172,7 +185,7 @@
             </div>
         </form><hr>
 
-        @if (count($adoptions) > 0)
+        @if (!empty($adoptions))
             <table>
                 <thead>
                     <tr>
