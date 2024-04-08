@@ -1,0 +1,22 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+td, th {
+    border: 1px solid darkslategrey;
+    width: 500px;
+    text-align: center;
+}
+.links {
+    display: flex;
+    border-radius: 30px;
+}
+.link {
+    font-weight: 700;
+    font-size: 20px;
+    margin-right: 40px;
+}

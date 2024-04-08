@@ -3,44 +3,24 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" type="text/css" href="css/adoption.css">
 
         <title>PetFurrent</title>
-        
-        <style>
-            body {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            }
-            td, th {
-                border: 1px solid darkslategrey;
-                width: 500px;
-                text-align: center;
-            }
-            .table-image {
-                height: 100px;
-                width: 200px;
-            }
-            .links {
-                display: flex;
-            }
-            .link {
-                font-weight: 700;
-                font-size: 20px;
-                margin-right: 40px;
-            }
-        </style>
     </head>
 
     <body>
         <div class="links">
             <a href="{{ route('users.fetchAll') }}"><button class="link">Users</button></a>
             <a href="{{ route('adoptions.fetchAll')}}"><button class="link">Adoptions</button></a>
+            <a href="{{ route('pets.fetchAll')}}"><button class="link">Pets</button></a>
         </div>
 
         <h1>Adoption</h1>
         <h3>Insert Form</h3>
         <form method="POST" action="{{ route('adoptions.add') }}" enctype="multipart/form-data">
             @csrf <!-- CSRF Protection -->
-        
+        <div class="adoption-form">
             <div>
                 <label for="user_id">User ID:</label>
                 <input type="number" id="user_id" name="user_id">
@@ -99,6 +79,7 @@
             <div>
                 <button type="submit">SUBMIT</button>
             </div>
+        </div>
         </form><hr>
 
         <h3>Update Form</h3>

@@ -27,10 +27,10 @@ Route::delete('/users/delete', [UserController::class, 'delete'])->name('users.d
 
 // Pet Routes
 Route::get('/pets', [PetController::class, 'fetchAll'])->name('pets.fetchAll');
-Route::get('/pet/{id}', [UserController::class, 'fetch'])->name('pets.fetch');
-Route::post('/pets/add', [UserController::class, 'add'])->name('pets.add');
-Route::put('/pets/update', [UserController::class, 'update'])->name('pets.update');
-Route::delete('/pets/delete', [UserController::class, 'delete'])->name('pets.delete');
+Route::get('/pet/{id}', [PetController::class, 'fetch'])->name('pets.fetch');
+Route::post('/pets/add', [PetController::class, 'add'])->name('pets.add');
+Route::put('/pets/update', [PetController::class, 'update'])->name('pets.update');
+Route::delete('/pets/delete', [PetController::class, 'delete'])->name('pets.delete');
 
 // Adoption Routes
 Route::get('/adoptions', [AdoptionController::class, 'fetchAll'])->name('adoptions.fetchAll');

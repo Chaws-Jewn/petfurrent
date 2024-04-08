@@ -9,6 +9,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Pet extends Model
 {
     use HasFactory, SoftDeletes;
+    public $fillable = [
+        'type',
+        'breed',
+        'name',
+        'gender',
+        'description',
+        'image'
+    ];
+
 
     public function adoption()
     {
