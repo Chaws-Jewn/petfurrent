@@ -25,7 +25,9 @@ class AdoptionFactory extends Factory
             'phone_number' => $this->faker->phoneNumber(),
             'house_number' => $this->faker->numberBetween(1, 30),
             'street' => $this->faker->streetName(),
-            'city' => $this->faker->city()
+            'city' => $this->faker->city(),
+            'front_id' => $this->faker->filePath(),
+            'back_id' => $this->faker->filePath()
         ];
     }
 }

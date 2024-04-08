@@ -25,7 +25,8 @@ return new class extends Migration
             $table->string('street');
             $table->string('city');
             $table->integer('status')->default(0);
-            $table->string('user_image')->nullable();
+            $table->string('front_id')->nullable();
+            $table->string('back_id')->nullable();
             $table->timestamp('adoption_stamp')->useCurrent();
         });
     }

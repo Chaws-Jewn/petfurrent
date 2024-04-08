@@ -19,7 +19,7 @@
     </head>
 
     <body>
-        
+        <h1>User</h1>
         <h3>Insert Form</h3>
         <form method="POST" action="{{ route('users.add') }}">
             @csrf <!-- CSRF Protection -->
