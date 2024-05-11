@@ -1,3 +1,22 @@
+Setup after Cloning 
+## Composer Install
+## rename the env.exmample to .env
+## if in .env file has no app key, to generate key put this in therminal "php artisan key:generate"
+## use "touch database/database.sqlite" in git bash 
+-if you are having this error (Database file at path [C:\Users\jayve\OneDrive\Documents\petfurrent\database\database.sqlite] does not exist. Ensure this is an absolute path to the database.)
+## then start inputing 
+-php artisan migrate
+-php artisan db:seed
+
+
+
+
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
