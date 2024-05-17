@@ -92,12 +92,16 @@
                                     <td>{{ implode(' ', array_slice(explode(' ', $dog->description), 0, 3)) . '...' }}</td>
                                     <td>
                                         <!-- Display the uploaded dog's image -->
-                                        <img class="image_size" src="{{ asset('dog/' . $dog->image) }}">
+                                        @if ($dog->image != null)
+                                            <img class="image_size" src="/dog/{{ $dog->image }}" alt="{{ $dog->name }} Image">
+                                        @else
+                                            <img class="image_size" src="{{ asset('images/noImage.png') }}" alt="{{ $dog->name }} Image">
+                                        @endif
                                     </td>
 
                                     <td class="center-buttons">
                                         <!-- Edit button navigating to the admin edit route with dog's id -->
-                                        <a class="btn btn-success" href="{{ route('admin.edit', $dog->id) }}">update</a>
+                                        <a class="btn btn-success" href="{{ route('admin.edit', $dog->id) }}">Update</a>
                                         <hr>
                                         <form action="{{ route('admin.destroy', $dog->id) }}" method="post">
                                             @csrf

@@ -105,7 +105,11 @@
             <div class="col-md-4">
                 <div class="card">
                     <a href="">
-                        <img class="card-img-top" src="/dog/{{ $dog->image }}" alt="{{ $dog->name }}">
+                        @if ($dog->image != null)
+                            <img src="/dog/{{ $dog->image }}" alt="{{ $dog->name }} Image">
+                        @else
+                            <img src="{{ asset('images/noImage.png') }}" alt="{{ $dog->name }} Image">
+                        @endif
                     </a>
                     <div class="card-content" style="font-family: Trirong, serif;">
                         <div class="card-details-grid">
