@@ -8,7 +8,7 @@
 <body>
     <div class="">
         <div class="text-center mb-4">
-            <h2 class="display-4 font-weight-bold text-primary">"Welcome to PETODE"</h2>
+            <h2 class="display-4 font-weight-bold text-primary">"Welcome to PetFurrent"</h2>
             <p class="lead">Your go-to place for finding your companions in life!</p>
             <img src="{{ asset('petbanner.png') }}" >
         </div>

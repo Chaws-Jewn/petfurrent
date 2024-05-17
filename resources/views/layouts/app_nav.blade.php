@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Petode</title>
+    <title>PetFurrent</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -70,7 +70,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}" style="font-family: Trirong, serif; font-size: 26px;">
                 <img src="{{ asset('logo-circle.png') }}" alt="Petode Logo" style="height: 45px;">
-                PETODE
+                PetFurrent
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

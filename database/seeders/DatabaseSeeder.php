@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'chaws123@gmail.com',
             'password' => bcrypt('123123123'),
         ]);
+
+        // admin
         
         \App\Models\User::factory()->create([
             'lname' => 'Chaws',

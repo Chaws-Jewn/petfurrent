@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PETODE</title>
+    <title>PetFurrent</title>
     <meta name="description" content="Free open source Tailwind CSS Store template">
     <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
 
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
-        <title>Petode</title>
+        <title>PetFurrent</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -179,7 +179,7 @@
 
             <label for="menu-toggle" class="cursor-pointer md:hidden block">
                 <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                    <title>menu</title>
+                    <title>PetFurrent</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                 </svg>
             </label>
@@ -198,7 +198,7 @@
                 <img src="http://127.0.0.1:8000/petode-logo.png" width="50" style="background-color:white;border-radius: 50%"><br>
 
                 <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="{{ route('login') }}" style="padding-left:10px;color: white">
-                    PETODE
+                    PetFurrent
                 </a>
             </div>
         </div>
@@ -208,7 +208,7 @@
 
         <div class="container py-8 px-6 mx-auto">
             <div style="padding-left: 20px;font-size: 500%;">
-                <div>Welcome to Petode!</div>
+                <div>Welcome to PetFurrent!</div>
             </div>
             <div style="padding-left: 60px;font-size: 125%;"><h1>Where you can find your future pets and Adopt your perfect companion.</h1></div>
             <div class="container mx-auto">

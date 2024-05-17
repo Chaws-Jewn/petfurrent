@@ -42,7 +42,7 @@
 
         .custom-file {
             position: relative;
-            margin-top: 10px;
+            margin-top: 60px;
             overflow: hidden;
             display: inline-block;
         }
@@ -60,7 +60,7 @@
 
         .custom-file-label {
             position: absolute;
-            top: 0;
+            top: 10px;
             right: 0;
             width: 50%;
             padding: 12px;
@@ -168,6 +168,8 @@
                                     <input type="submit" value="Post Pet">
                                 </div>
                             </div>
+
+                            
                             <div class="col-md-9">
                                 <div class="form-group">
                                     <label for="description">Details</label>
@@ -186,6 +188,8 @@
                             
                                 </form>
                             </div>
+
+                            
                         </div>
                     </div>
                     @endsection
