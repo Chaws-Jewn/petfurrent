@@ -2,13 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Adoption;
-use App\Models\Pet;
-use App\Models\PetCareDetails;
-use App\Models\PetCareImage;
-use App\Models\PetMaintenance;
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Dog;
+use App\Models\Petcare;
+use Database\Factories\DogFactory;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,11 +15,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
-        Pet::factory(10)->create();
-        PetCareDetails::factory(10)->create();
-        PetCareImage::factory(10)->create();
-        PetMaintenance::factory(10)->create();
-        Adoption::factory(10)->create();    
+        \App\Models\User::factory(10)->create();
+
+        \App\Models\User::factory()->create([
+            'lname' => 'Chaws',
+            'fname' => 'Pogi',
+            'email' => 'chaws123@gmail.com',
+            'password' => bcrypt('123123123'),
+        ]);
+        
+        \App\Models\User::factory()->create([
+            'lname' => 'Chaws',
+            'fname' => 'Handsome',
+            'email' => 'chawsAdmin@gmail.com',
+            'password' => bcrypt('123123123'),
+            'is_admin' => true,
+        ]);
+
+        Dog::factory(10)->create();
+        Petcare::factory(12)->create();
     }
 }

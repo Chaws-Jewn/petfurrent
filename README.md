@@ -1,22 +1,3 @@
-Setup after Cloning 
-## Composer Install
-## rename the env.exmample to .env
-## if in .env file has no app key, to generate key put this in therminal "php artisan key:generate"
-## use "touch database/database.sqlite" in git bash 
--if you are having this error (Database file at path [C:\Users\jayve\OneDrive\Documents\petfurrent\database\database.sqlite] does not exist. Ensure this is an absolute path to the database.)
-## then start inputing 
--php artisan migrate
--php artisan db:seed
-
-
-
-
-
-
-
-
-
-
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -46,7 +27,7 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 
 You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
 ## Laravel Sponsors
 
@@ -83,3 +64,85 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+## ------------------------ Migrating tables -------------------------------------- ##
+If there is an error upon migration (php artisan migrate)
+
+## Please follow the steps:
+1. run 'php artisan migrate'
+
+## Add 'is_admin' field to the users table:
+1. create migration file for users table:
+    php artisan make:migration add_is_admin_to_users_table
+
+2. After successfully creating the migration file, go to database/migration/create_dogs_table 
+    Insert the following start from Line 16:
+            $table->boolean('is_admin')->default(0);
+    Save it.
+
+
+## If error occurs for dogs and adopts tables, follow the following:
+1. create migration file for dogs table:
+    php artisan make:migration create_dogs_table
+
+2. After successfully creating the migration file, go to database/migration/create_dogs_table 
+    Insert the following start from Line 16:
+            $table->string('name')->nullable();
+            $table->integer('age')->nullable();
+            $table->string('breed')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
+    Save it.
+
+3. Then create a migration file for adding a column 'deleted_at' to dogs table
+        php artisan make:migration add_deleted_at_to_dogs_table
+
+4. After successfully creating the migration file, go to database/migration/deleted_at_to_dogs_table 
+    Insert the following start in Line 16:
+            $table->softDeletes();
+    Save it.
+
+5. create migration file for creating adopts table:
+    php artisan make:migration create_adopts_table
+
+7. After successfully creating the migration file, go to database/migration/create_adopts_table 
+    Insert the following start from Line 16:
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('dogs_id')->constrained();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->integer('phone_number');
+            $table->string('email_address');
+            $table->string('house_number');
+            $table->string('street');
+            $table->string('city');
+            $table->string('adopt_status')->default('Pending');
+    Save it.
+
+8. Then create a migration file for adding a column 'deleted_at' to adopts table
+        php artisan make:migration add_deleted_at_to_dogs_table
+
+9. After successfully creating the migration file, go to database/migration/add_deleted_at_to_adopts_table
+    Insert the following start in Line 16:
+            $table->softDeletes();
+    Save it.
+
+
+## You also need to modify the data type of phone_number field in adopts table:
+10. create migration file for modifying data type in adopts table:
+    php artisan make:migration modify_phone_number_data_type_in_adopts_table
+
+11. After successfully creating the migration file, go to database/migration/modify_phone_number_data_type_in_adopts_table
+    Insert the following start from Line 16:
+            $table->bigInteger('phone_number')->change();
+    Save it.
+
+
+## After creating the migration files
+1. Run 'php artisan migrate' again.
+2. Refresh your phpmyadmin
+
+
