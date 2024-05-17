@@ -96,7 +96,6 @@ Route::post('/admin/petcares', [AdminPetcareController::class, 'store'])->name('
 Route::get('/admin/petcares', [AdminPetcareController::class, 'index'])->name('admin.petcares.index');
 
 Route::get('/petcares', [UserPetcareController::class, 'index'])->name('petcares.index');
-Route::get('/petcares', [UserPetcareController::class, 'index'])->name('petcares.index');
 Route::get('/admin/petcares', [AdminPetcareController::class, 'allPetcares'])->name('admin.petcares.index');
 Route::get('/admin/petcares/all', [AdminPetcareController::class, 'allPetcares'])->name('admin.petcares.all');
 Route::get('admin/petcares/{petcare}/edit', [AdminPetcareController::class, 'edit'])->name('admin.petcares.edit');

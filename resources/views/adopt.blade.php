@@ -106,51 +106,80 @@
 
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
-                                            <label for="">Do you have a secure outdoor area?</label>
-                                            <input type="text" class="form-control" placeholder="secure outdoor area?"
-                                                id="first_name" name="first_name" required="">
+                                            <label for="">Do you have a secure outdoor area?</label><br>
+                                            <select name="first_name" class="form-control" required>
+                                                <option value="" selected> Select answer </option>
+                                                <option value="Yes"> Yes </option>
+                                                <option value="No"> No </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
-                                            <label for="">Where will the animal sleep at night? </label>
-                                            <input type="text" class="form-control" placeholder="Inside/Outside"
-                                                id="last_name" name="last_name" required="">
+                                            <label for="">Where will the animal sleep at night? </label><br>
+                                            {{-- <input type="text" class="form-control" placeholder="Inside/Outside"
+                                                id="last_name" name="last_name" required=""> --}}
+                                            <select name="last_name" class="form-control" required>
+                                                <option value="" selected> Select answer </option>
+                                                <option value="Inside"> Inside </option>
+                                                <option value="Outside"> Outside </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
                                             <label for="">Age of the youngest child in your house?</label>
-                                            <input type="text" class="form-control" placeholder="Age"
+                                            <input type="number" class="form-control" placeholder="Age"
                                                 id="phone_number" name="phone_number" required="">
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
                                             <label for="">Do you own or rent your home?</label>
-                                            <input type="text" class="form-control" placeholder="If renting, does your lease allow pets?" id="city"
-                                                name="city" required="">
+                                            {{-- <input type="text" class="form-control" placeholder="If renting, does your lease allow pets?" id="city"
+                                                name="city" required=""> --}}
+                                            <select name="city" class="form-control" required>
+                                                <option value="" selected> Select answer </option>
+                                                <option value="Owning"> Owning </option>
+                                                <option value="Renting, owner allows pets"> Renting, owner allows pets </option>
+                                                <option value="Renting, owner doesn't allow pets"> Renting, doesn't allow pets </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
-                                            <label for="">Does anyone in your household have allergies to animals?</label>
-                                            <input type="text" class="form-control" placeholder="Allergies to animals" id="street"
-                                                name="street" required="">
+                                            <label for="">Does anyone in your household have allergies to animals?</label><br>
+                                            {{-- <input type="text" class="form-control" placeholder="Allergies to animals" id="street"
+                                                name="street" required=""> --}}
+                                            <select name="street" class="form-control" required>
+                                                <option value="" selected> Select answer </option>
+                                                <option value="Yes"> Yes </option>
+                                                <option value="No"> No </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
                                             <label for="">Are you willing to invest time and effort in training and socializing your new pet? </label>
-                                            <input type="text" class="form-control" placeholder="Training and socializing your new pet"
-                                                id="house_number" name="house_number" required="">
+                                            {{-- <input type="text" class="form-control" placeholder="Training and socializing your new pet"
+                                                id="house_number" name="house_number" required=""> --}}
+                                            <select name="house_number" class="form-control" required>
+                                                <option value="" selected> Select answer </option>
+                                                <option value="Yes"> Yes </option>
+                                                <option value="No"> No </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
                                             <label for="">Will the animal be left alone for long periods of time?</label>
-                                            <input type="text" class="form-control" placeholder="Left alone"
-                                                id="email_address" name="email_address" required="">
+                                            {{-- <input type="text" class="form-control" placeholder="Left alone"
+                                                id="email_address" name="email_address" required=""> --}}
+                                            <select name="email_address" class="form-control" required>
+                                                <option value="" selected> Select answer </option>
+                                                <option value="Yes"> Yes </option>
+                                                <option value="No"> No </option>
+                                            </select>
                                         </div>
                                     </div>
                                     <h6>Note: Upon the procedure of your adoption form are you willing to wait? (We will reach you using your provide information)</h6>

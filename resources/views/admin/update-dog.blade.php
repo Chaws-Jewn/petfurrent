@@ -115,8 +115,12 @@
                                         <div class="col-md-6 mb-3">
                                             <div class="form-group">
                                                 <label for="gender">Pet Gender</label>
-                                                <input type="text" id="gender" name="gender" placeholder="Dog Gender"
-                                                    required="" value="{{$dog->gender}}">
+                                                {{-- <input type="text" id="gender" name="gender" placeholder="Dog Gender"
+                                                    required="" value="{{$dog->gender}}"> --}}
+                                                <select name="gender">
+                                                    <option value="Male" @selected($dog->gender == 'Male')> Male </option>
+                                                    <option value="Female" @selected($dog->gender == 'Female')> Female </option>
+                                                </select>
                                             </div>
                                         </div>
 
@@ -133,7 +137,12 @@
     <div class="form-group">
         <label for="existing_image">Existing Image</label>
         <br>
-        <img class="image_size" style="height:200px; width:200px;" src="{{ asset('dog/' . $dog->image) }}">
+        @if ($dog->image != null)
+            <img class="image_size" style="height:200px; width:200px;" src="{{ asset('dog/' . $dog->image) }}">
+        @else
+            <img class="image_size" style="height:200px; width:200px;" src="{{ asset('images/noImage.png') }}">
+        @endif
+        
     </div>
 </div>
 

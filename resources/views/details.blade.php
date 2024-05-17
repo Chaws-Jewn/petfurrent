@@ -5,7 +5,11 @@
     <div class="row">
         <!-- Dog image-->
         <div class="col-md-6">
-            <img src="/dog/{{ $dog->image }}" alt="{{ $dog->name }}" style="width: 100%; height: 100%; max-width: 475px; max-height: 475px; border-radius: 50% 20% / 10% 40%;">
+            @if ($dog->image != null)
+                <img src="/dog/{{ $dog->image }}" alt="{{ $dog->name }} Image" style="width: 100%; height: 100%; max-width: 475px; max-height: 475px; border-radius: 50% 20% / 10% 40%;">
+            @else
+                <img src="{{ asset('images/noImage.png') }}" alt="{{ $dog->name }} Image" style="width: 100%; height: 100%; max-width: 475px; max-height: 475px; border-radius: 50% 20% / 10% 40%;">
+            @endif
         </div>
 
         <!-- Dog details on the (right side) -->

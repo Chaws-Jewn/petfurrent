@@ -96,7 +96,7 @@ class DogController extends Controller
             'description' => $request->description,
         ]);
         // Redirects to the admin dashboard (index) after updating 
-        return redirect()->route('admin.index')->with('success', 'Dog updated successfully');
+        return redirect()->route('admin.show', ['admin' => 'all_dogs'])->with('success', 'Dog updated successfully');
     }
 
     public function destroy($id)

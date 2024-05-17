@@ -128,7 +128,7 @@
         <div class="col-md-6 mb-6">
             <div class="form-group">
                 <label for="new_image">New Image</label>
-                <input type="file" name="new_image">
+                <input type="file" accept=".png, .jpg, .jpeg" name="new_image">
             </div>
         </div>
         <div class="col-md-6 mb-6">
