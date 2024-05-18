@@ -20,7 +20,7 @@ class DogFactory extends Factory
             'name' => $this->faker->firstName(),
             'breed' => $this->faker->randomElement(['Poodle', 'Golden Retriever', 'Labrador Retriever', 'German Shepherd', 'Bulldog', 'Beagle', 'Pug', 'Rottweiler', 'Yorkshire Terrier', 'Boxer']),
             'age' => $this->faker->numberBetween(1, 20),
-            'gender' => $this->faker->randomElement(['Male', 'Female', 'Unknown']),
+            'gender' => $this->faker->randomElement(['Male', 'Female']),
             'description' => $this->faker->sentence(),
          ];
     }

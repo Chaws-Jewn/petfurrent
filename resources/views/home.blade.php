@@ -38,10 +38,11 @@
         }
 
         .card img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
             max-height: 200px;
-            object-fit: cover;
+            margin-top: 20px;
+            /* object-fit: cover; */
         }
 
         .card-content {

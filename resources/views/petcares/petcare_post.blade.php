@@ -17,13 +17,17 @@
                 <div class="col-md-4 mb-4">
                     <div class="card shadow">
                         <div class="card-img-container">
-                            <img src="{{ asset('images/' . $petcare->image) }}" class="card-img-top" alt="{{ $petcare->title }}">
+                            @if ($petcare->image != null)
+                                <img src="{{ asset('images/' . $petcare->image) }}" class="card-img-top" alt="{{ $petcare->title }}">
+                            @else
+                                <img src="{{ asset('images/noImage.png') }}" class="card-img-top" alt="{{ $petcare->title }}">
+                            @endif
                         </div>
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ implode(' ', array_slice(explode(' ', $petcare->title), 0, 3)) . '...' }}</h5>
                             <p class="card-text">{{ implode(' ', array_slice(explode(' ', $petcare->description), 0, 3)) . '...' }}</p>
                             <!-- Trigger the modal using JavaScript function -->
-                            <button type="button" class="btn btn-primary" onclick="openPetcareModal( $petcare.id )">
+                            <button type="button" class="btn btn-primary" onclick="openPetcareModal({{ $petcare->id }})">
                                 Read More
                             </button>
                         </div>
@@ -40,8 +44,13 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="{{ asset('images/' . $petcare->image) }}" class="img-fluid" alt="{{ $petcare->title }}" style="width: 100%; height: 100%; max-width: 475px; max-height: 475px; border-radius: 50% 20% / 10% 40%;">
-                    </div>
+                        @if ($petcare->image != null)
+                            <img src="{{ asset('images/' . $petcare->image) }}" class="img-fluid" alt="{{ $petcare->title }}" style="width: 100%; height: 100%; max-width: 475px; max-height: 475px; border-radius: 50% 20% / 10% 40%;">
+                        @else
+                            
+                            <img src="{{ asset('images/noImage.png') }}" class="img-fluid" alt="{{ $petcare->title }}" style="width: 100%; height: 100%; max-width: 475px; max-height: 475px; border-radius: 50% 20% / 10% 40%;">
+                        @endif
+                        </div>
                     <div class="col-md-6">
                         <!-- Add left padding or margin to create an indent -->
                         <p style="padding-left: 15px;">{{ $petcare->description }}</p>

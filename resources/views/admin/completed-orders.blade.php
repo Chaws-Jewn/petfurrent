@@ -36,9 +36,6 @@
 
 <!-- List of Orders with 'Completed' status -->
 <div class="col-md-9">
-                            <h6>Dogs : 1</h6>
-                        <h6>Cats : 0</h6>
-                            </div>
 <ul class="list-group">
     @foreach ($completedOrders as $adopt)
         <li class="list-group-item">
@@ -56,10 +53,7 @@
 
                 <label for="">User Email:</label>
                 <input type="text" class="form-control" value="{{ $adopt->user->email ?? 'N/A' }}" readonly>
-
-                <label for="">Breed:</label>
-                <!-- lalo -->
-                <input type="text" class="form-control" value="{{ optional($adopt->dog)->breed ?? 'N/A' }}" readonly>
+                
             </div>
         </li>
         <hr>

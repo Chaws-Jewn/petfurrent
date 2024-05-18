@@ -5,6 +5,20 @@
     background-color: #f8f9fa; /* Set your desired background color */
   }
 
+  .admin {
+    margin-left: 48px;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: -5px
+  }
+
+  .adminrole{
+    font-size: 15px;
+    margin-left: 75px;
+    font-weight: 200;
+
+  }
+
   .sidebar {
     width: 200px;
     background-color: #343a40; /* Updated sidebar background color */
@@ -35,7 +49,7 @@
     display: block;
     margin: 20px auto; /* Center logo vertically and horizontally */
     max-width: 100%;
-    max-height: 75px;
+    max-height: 200px;
   }
 
   .sidebar hr {
@@ -88,7 +102,9 @@
 <body>
 
   <div class="sidebar">
-  <img src="{{ asset('landscape-preview.png') }}" alt="Petode Logo" style="height: 75px;">
+  <img src="{{ asset('logo-circle.png') }}" alt="PetFurrent Logo" style="height: 100px;">
+  <h1 class="admin">{{ Auth::user()->lname }}</h1>
+  <p class="adminrole">Admin</p>
 <hr>
     <!--
   <a class="active" href="{{route('admin.index')}}">Dashboard</a>
@@ -141,12 +157,6 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-
-
-
 
                               <div class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

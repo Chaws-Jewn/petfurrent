@@ -60,7 +60,6 @@
 
         .custom-file-label {
             position: absolute;
-            top: 10px;
             right: 0;
             width: 50%;
             padding: 12px;
@@ -70,10 +69,10 @@
             cursor: pointer;
             background-color: #04AA6D;
             color: white;
-            text-align: center;
+            text-align: left;
         }
 
-        .custom-file-label::after {
+        /* .custom-file-label::after {
             content: "Browse";
             position: absolute;
             top: 50%;
@@ -81,7 +80,7 @@
             transform: translate(-50%, -50%);
             color: white;
             font-weight: normal;
-        }
+        } */
 
         .custom-file input[type="file"]:focus+.custom-file-label {
             border-color: #04AA6D;
@@ -179,7 +178,7 @@
                                         <label for="image">Choose File</label>
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="image" name="image" onchange="previewImage(this);" required="">
-                                            <label class="custom-file-label" for="image" id="file-label">Browse</label>
+                                            <label class="custom-file-label" for="image" id="file-label">Upload an image</label>
                                         </div>
                                     </div>
                                     <div class="form-group image-container">

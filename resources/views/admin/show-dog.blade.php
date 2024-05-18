@@ -11,17 +11,24 @@
         border-collapse: collapse;
         width: 100%;
         border: 1px solid #ddd;
+        justify-content: center
+    }
+
+    .center{
+        text-align: center;
     }
 
     th, td {
-        text-align: left;
+        text-align: center;
         padding: 16px;
         border: 1px solid #ddd;
+        justify-content: center;
     }
 
     th {
         background-color: #4CAF50;
         color: white;
+        text-align: center;
     }
 
     .image_size {
@@ -32,6 +39,12 @@
     .center-buttons {
         text-align: center;
     }
+
+    .head_design{
+        padding-left: 36px;
+    }
+    
+    
 </style>
 
 </head>
@@ -73,20 +86,20 @@
                             <table>
                                 <tr>
                                     <!-- Table Column Names -->
-                                    <th>Pet Name</th>
-                                    <th>Age</th>
-                                    <th>Type/Breed</th>
-                                    <th>Gender</th>
-                                    <th>Description</th>
-                                    <th>Image</th>
-                                    <th class="head_design">Update/Delete</th>
+                                    <th class="center">Pet Name</th>
+                                    <th class="center">Age</th>
+                                    <th class="center">Type/Breed</th>
+                                    <th class="center">Gender</th>
+                                    <th class="center">Description</th>
+                                    <th class="center">Image</th>
+                                    <th class="head_design">Action</th>
                                 </tr>
 
                                 <!-- Loop for each dog and display its details -->
                                 @foreach($dogs as $dog)
                                 <tr>
                                     <td>{{$dog->name}}</td>
-                                    <td>{{$dog->age}}</td>
+                                    <td>{{$dog->age}} months</td>
                                     <td>{{$dog->breed}}</td>
                                     <td>{{$dog->gender}}</td>
                                     <td>{{ implode(' ', array_slice(explode(' ', $dog->description), 0, 3)) . '...' }}</td>

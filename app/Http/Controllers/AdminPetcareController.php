@@ -37,7 +37,7 @@ class AdminPetcareController extends Controller
             'image' => $imageName,
         ]);
 
-        return redirect()->route('admin.home')->with('success', 'Petcare added successfully.');
+        return redirect()->route('admin.petcares.index')->with('success', 'Petcare added successfully.');
     }
 
     public function edit(Petcare $petcare)
