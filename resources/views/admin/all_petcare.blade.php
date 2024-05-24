@@ -76,14 +76,13 @@
         border-collapse: collapse;
         width: 100%;
         margin-top: 20px;
-        text-align: center;
     }
 
     th,
     td {
         border: 1px solid #ddd;
         padding: 8px;
-        text-align: center;
+        text-align: left;
     }
 
     th {
@@ -100,11 +99,6 @@
 
     .center-buttons {
         text-align: center;
-    }
-
-    hr{
-        margin-right: 10px;
-        margin-left: 10px;
     }
 </style>
 
@@ -134,7 +128,8 @@
                             <th>Petcare Title</th>
                             <th>Description</th>
                             <th>Image</th>
-                            <th>Action< /th>
+                            <th>Edit</th>
+                            <th>Delete</th> <!-- New Delete Column -->
                         </tr>
 
                         @forelse ($petcares as $petcare)
@@ -142,18 +137,13 @@
                             <td>{{ implode(' ', array_slice(explode(' ', $petcare->title), 0, 3)) . '...' }}</td>
                             <td>{{ implode(' ', array_slice(explode(' ', $petcare->description), 0, 3)) . '...' }}</td>
                             <td>
-                                @if ($petcare->image != null )
-                                <img src="{{ asset('images/' . $petcare->image) }}" class="image_size" alt="Petcare Image">
-                                @else
-                                <img src="{{ asset('images/noImage.png')}}" class="image_size" alt="Petcare Image">
-                                @endif
+                                <img class="image_size" src="{{ asset('images/' . $petcare->image) }}" alt="{{ $petcare->title }}">
                             </td>
                             <td class="center-buttons">
-                                
                                 <!-- Edit button navigating to the admin edit route with petcare's id -->
-                                <a class="btn btn-success" href="{{ route('admin.petcares.edit', $petcare->id) }}">Edit</a> 
-
-                                <hr>
+                                <a class="btn btn-success" href="{{ route('admin.petcares.edit', $petcare->id) }}">Edit</a>
+                            </td>
+                            <td class="center-buttons">
                                 <!-- Delete button for deleting the petcare post -->
                                 <form action="{{ route('admin.petcares.destroy', $petcare->id) }}" method="post">
                                     @csrf

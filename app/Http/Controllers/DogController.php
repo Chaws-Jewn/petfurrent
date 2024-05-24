@@ -57,7 +57,7 @@ class DogController extends Controller
             'image' => $imageName,]);
 
         // Once we click the button, this redirects to the admin dashboard with a name of 'index'
-        return redirect()->route('admin.show', ['admin' => 'all_dogs'])->with('success', 'Dog updated successfully');
+        return redirect()->route('admin.index')->with('success', 'Dog added successfully');
 
     }
 
@@ -111,13 +111,7 @@ class DogController extends Controller
 
     public function show()
     {
-        $dogs = Dog::with('adopts')->orderByDesc('updated_at')->get(); // This retrieves all the dog records on the dogs table from the database
-        // $dogs = [];
-        // foreach($all_dogs as $dog) {
-        //     if($dog->adopts!= null) {
-        //         array_push($dogs, $dog);
-        //     }
-        // }
+        $dogs = Dog::all(); // This retrieves all the dog records on the dogs table from the database
         return view('admin.show-dog', compact('dogs')); // This passes the retrieved information of the dogs to the show-dog blade file to list all the added/posted dogs
     }
 
@@ -225,7 +219,7 @@ class DogController extends Controller
         // This checks if there is a dog record
         if ($dog) {
             // This perform a soft delete on the dog record if the status is completed. This removes the dogs to the user dashboard so it won't be available to other users 
-            // $dog->delete();
+            $dog->delete();
             
             // Redirect to the 'admin.index' (admin dashboard)
             return redirect()->route('admin.index');

@@ -38,13 +38,7 @@
         <tr>
             <td>{{ $petcare->title }}</td>
             <td>{{ $petcare->description }}</td>
-            <td>
-                @if ($petcare->image != null )
-                <img src="{{ asset('images/' . $petcare->image) }}" class="image_size" alt="Petcare Image">
-                @else
-                 <img src="{{ asset('images/noImage.png')}}" class="image_size" alt="Petcare Image">
-                @endif
-            </td>
+            <td><img src="{{ asset('images/' . $petcare->image) }}" class="image_size" alt="Petcare Image"></td>
             <td>
                 <a href="{{ route('admin.petcare.edit', $petcare->id) }}" class="btn btn-primary">Edit</a>
                 <form action="{{ route('admin.petcare.destroy', $petcare->id) }}" method="POST" style="display: inline-block;">
