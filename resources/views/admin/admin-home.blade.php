@@ -60,7 +60,7 @@
             </div>
 
             <!-- Table Part -->
-            <div class="col-lg-12 col-sm-12">
+            <div class="col-lg-12 col-sm-10">
                 <div class="container">
                 <div class="text-center mb-4">
                 <h2 class="display-4 font-weight-bold">Client Request</h2>

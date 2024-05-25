@@ -63,13 +63,13 @@
             <tr class="table-contents">
                 <td >{{ $adoption->id }}</td>
                 <td>{{ optional($adoption->dog)->name }}</td>
-                <td>Sample date</td>
+                <td>{{ optional($adoption->dog)->created_at->format('M-d-20y') }}</td>
                 <td >
                     <span class="badge bg-primary {{ $adoption->adopt_status }}">
                         {{ $adoption->adopt_status }}
                     </span>
                 </td>
-                <td>remarks sample here</td>
+                <td>{{ $adoption->remarks }}</td>
             </tr>
             @endforeach
         </tbody>

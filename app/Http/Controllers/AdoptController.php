@@ -47,6 +47,18 @@ public function declineStatus(Request $request, Adopt $adopt)
     return redirect()->route('admin.admin-home')->with('success', 'Adoption status updated successfully!');
 }
 
+public function addRemark(Request $request, Adopt $adopt)
+{
+    $request->validate([
+        'remarks' => 'required|string|max:255',
+    ]);
+
+    $adopt->remarks = $request->input('remarks');
+    $adopt->save();
+
+    return redirect()->route('admin.adopt.details', ['id' => $adopt->id])->with('success', 'Remark added successfully!');
+}
+
 /*
     public function updateStatus(Request $request, Adopt $adopt)
     {

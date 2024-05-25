@@ -11,11 +11,12 @@
             <h2 class="display-4 font-weight-bold text-primary">PET CARES</h2>
             <p class="lead">Your go-to place for pet care tips and tricks!</p>
         </div>
-
+    
         <div class="row">
             @foreach ($petcares as $petcare)
                 <div class="col-md-4 mb-4">
                     <div class="card shadow">
+                        <p>Category: {{ $petcare->category }}</p>
                         <a href="">
                             @if ($petcare->image != null)
                                 <img src="/petcare/{{ $petcare->image }}" alt="{{ $petcare->title }} Image">
@@ -24,23 +25,13 @@
                             @endif
                         </a>
                         <div class="card-body text-center">
-                            <div class="card-details-grid">
-                                <div>
-                                    <h3>Title:</h3>
-                                    <p>{{ implode(' ', array_slice(explode(' ', $petcare->title), 0, 3)) . '...' }}</p>
-                                </div>
-                                <div>
-                                    <h3>Category:</h3>
-                                    <p>{{ $petcare->category }}</p>
-                                </div>
-                            </div>
+                            <h5 class="card-title">{{ implode(' ', array_slice(explode(' ', $petcare->title), 0, 3)) . '...' }}</h5>
                             <button type="button" class="btn btn-primary" onclick="openPetcareModal({{ $petcare->id }})">
                                 Read More
                             </button>
                         </div>
                     </div>
                 </div>
-
                 <!-- Modal for each pet care item -->
                 <div class="modal fade" id="petcareModal{{ $petcare->id }}" tabindex="-1" role="dialog" aria-labelledby="petcareModalLabel{{ $petcare->id }}" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
@@ -56,18 +47,16 @@
                                     </div>
                                     <div class="col-md-6">
                                         <p style="padding-left: 15px;">{{ $petcare->description }}</p>
+                                        <h5 class="modal-title">Category: {{ $petcare->category }}</h5>
                                     </div>
                                 </div>
-                                <h5 class="modal-title">FOR: {{ $petcare->category }}</h5>
                             </div>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-
         <hr>
-
         <div class="about-section mt-5">
             <h3 class="mb-4 text-center">About Petcares</h3>
             <p class="lead text-center">
@@ -108,11 +97,11 @@
     }
 
     .card img {
-        width: 100%;
-        height: auto;
-        max-height: 200px;
-        object-fit: cover;
-    }
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            margin-top: 10px;
+        }
 
     .card-body {
         padding: 20px;

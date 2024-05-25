@@ -78,6 +78,7 @@ Route::delete('/admin/{id}/delete', [DogController::class, 'destroy'])->name('ad
 // Route::resource('admin', AdoptController::class)->only(['update']);
 //new
 Route::put('/adopts/updateStatus/{adopt}', [AdoptController::class, 'updateStatus'])->name('adopts.updateStatus');
+Route::post('/adopts/{adopt}/remarks', [AdoptController::class, 'addRemark'])->name('adopts.addRemark');
 
 
 Route::get('/admin/adopt/{id}/details', [DogController::class, 'viewAdoptDetails'])->name('admin.adopt.details')->middleware('isAdmin');
