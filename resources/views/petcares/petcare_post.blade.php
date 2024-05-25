@@ -16,43 +16,53 @@
             @foreach ($petcares as $petcare)
                 <div class="col-md-4 mb-4">
                     <div class="card shadow">
-                        <div class="card-img-container">
-                            <img src="{{ asset('images/' . $petcare->image) }}" class="card-img-top" alt="{{ $petcare->title }}">
-                        </div>
+                        <a href="">
+                            @if ($petcare->image != null)
+                                <img src="/petcare/{{ $petcare->image }}" alt="{{ $petcare->title }} Image">
+                            @else
+                                <img src="{{ asset('images/noImage.png') }}" alt="{{ $petcare->title }} image">
+                            @endif
+                        </a>
                         <div class="card-body text-center">
-                            <h5 class="card-title">{{ implode(' ', array_slice(explode(' ', $petcare->title), 0, 3)) . '...' }}</h5>
-                            <p class="card-text">{{ implode(' ', array_slice(explode(' ', $petcare->description), 0, 3)) . '...' }}</p>
-                            <!-- Trigger the modal using JavaScript function -->
-                            <button type="button" class="btn btn-primary" onclick="openPetcareModal( $petcare.id )">
+                            <div class="card-details-grid">
+                                <div>
+                                    <h3>Title:</h3>
+                                    <p>{{ implode(' ', array_slice(explode(' ', $petcare->title), 0, 3)) . '...' }}</p>
+                                </div>
+                                <div>
+                                    <h3>Category:</h3>
+                                    <p>{{ $petcare->category }}</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="openPetcareModal({{ $petcare->id }})">
                                 Read More
                             </button>
                         </div>
                     </div>
                 </div>
-<!-- Modal for each pet care item -->
-<div class="modal fade" id="petcareModal{{ $petcare->id }}" tabindex="-1" role="dialog" aria-labelledby="petcareModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="petcareModalLabel">{{ $petcare->title }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="{{ asset('images/' . $petcare->image) }}" class="img-fluid" alt="{{ $petcare->title }}" style="width: 100%; height: 100%; max-width: 475px; max-height: 475px; border-radius: 50% 20% / 10% 40%;">
-                    </div>
-                    <div class="col-md-6">
-                        <!-- Add left padding or margin to create an indent -->
-                        <p style="padding-left: 15px;">{{ $petcare->description }}</p>
+
+                <!-- Modal for each pet care item -->
+                <div class="modal fade" id="petcareModal{{ $petcare->id }}" tabindex="-1" role="dialog" aria-labelledby="petcareModalLabel{{ $petcare->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="petcareModalLabel{{ $petcare->id }}">{{ $petcare->title }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <img src="{{ asset('images/' . $petcare->image) }}" class="img-fluid" alt="{{ $petcare->title }}" style="width: 100%; height: 100%; max-width: 475px; max-height: 475px; border-radius: 50% 20% / 10% 40%;">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p style="padding-left: 15px;">{{ $petcare->description }}</p>
+                                    </div>
+                                </div>
+                                <h5 class="modal-title">FOR: {{ $petcare->category }}</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
             @endforeach
         </div>
 
@@ -74,58 +84,78 @@
         </div>
     </div>
 
-        <!-- Include Bootstrap JavaScript at the end of the body -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include Bootstrap JavaScript at the end of the body -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-    // JavaScript function to open the modal
-    function openPetcareModal(petcareId) {
-        var modal = new bootstrap.Modal(document.getElementById('petcareModal' + petcareId));
-        modal.show();
-    }
-</script>
+    <script>
+        // JavaScript function to open the modal
+        function openPetcareModal(petcareId) {
+            var modal = new bootstrap.Modal(document.getElementById('petcareModal' + petcareId));
+            modal.show();
+        }
+    </script>
 </body>
 <style>
     /* Custom styling for the card and container */
     .card {
-        border: none;
-        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(128, 0, 128, 0.5); 
+        max-width: 350px;
+        margin: auto;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        margin-bottom: 20px;
         overflow: hidden;
-        transition: transform 0.3s ease-in-out;
     }
 
-    .card:hover {
-        transform: scale(1.05);
-    }
-
-    .card-img-container {
-        height: 200px; /* Set the desired height for the image container */
-        overflow: hidden;
-        position: relative; /* Added to position the title and description */
-    }
-
-    .card-img-top {
+    .card img {
         width: 100%;
         height: auto;
+        max-height: 200px;
+        object-fit: cover;
     }
 
     .card-body {
-        padding: 15px; /* Adjust padding for better spacing */
+        padding: 20px;
     }
 
-    .card-title {
-        font-size: 1.5rem; /* Adjust font size for title */
-        margin-bottom: 10px; /* Add margin for separation */
+    .card-details-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        text-align: left;
     }
 
-    .card-text {
-        font-size: 1rem; /* Adjust font size for description */
+    .card-details-grid div {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
     }
 
-    /* Styling for the about section */
+    .card-details-grid h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .card button {
+        border: none;
+        outline: 0;
+        padding: 12px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    .card button:hover {
+        opacity: 0.7;
+    }
+
     .about-section {
         max-width: 800px;
         margin: 0 auto;
     }
-</style>>
+</style>
 @endsection

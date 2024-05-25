@@ -92,8 +92,6 @@
 
 <body>
 
-<!------------------------ USER DASHBOARD -------------------------------->
-
     <div class="container">
         <div class="section-heading">
             <h1 style="font-family: Trirong, serif;">Available Pets</h1>

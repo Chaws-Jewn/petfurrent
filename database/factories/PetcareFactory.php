@@ -19,6 +19,7 @@ class PetcareFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
+            'category' => $this->faker->randomElement([ 'dog', 'cat']),
         ];
     }
 }
