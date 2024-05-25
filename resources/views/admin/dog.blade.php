@@ -42,7 +42,7 @@
 
         .custom-file {
             position: relative;
-            margin-top: 60px;
+            margin-top: 100px;
             overflow: hidden;
             display: inline-block;
         }
@@ -51,7 +51,7 @@
             opacity: 0;
             font-size: 20px;
             position: absolute;
-            top: 0;
+            top: 30;
             left: 0;
             width: 100%;
             height: 100%;
@@ -60,7 +60,7 @@
 
         .custom-file-label {
             position: absolute;
-            top: 10px;
+            top: 30px;
             right: 0;
             width: 50%;
             padding: 12px;
@@ -70,18 +70,17 @@
             cursor: pointer;
             background-color: #04AA6D;
             color: white;
-            text-align: center;
+            text-align: left;
         }
 
-        .custom-file-label::after {
-            content: "Browse";
+        /* .custom-file-label::after {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
             font-weight: normal;
-        }
+        } */
 
         .custom-file input[type="file"]:focus+.custom-file-label {
             border-color: #04AA6D;
@@ -176,10 +175,10 @@
                                     <textarea id="description" name="description" placeholder="Write Description about the pet" style="height: 200px;" required=""></textarea>
                                 </div>
                                 <div class="form-group">
-                                        <label for="image">Choose File</label>
+                                        {{-- <label for="image">Choose File</label> --}}
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="image" name="image" onchange="previewImage(this);" required="">
-                                            <label class="custom-file-label" for="image" id="file-label">Browse</label>
+                                            <label class="custom-file-label" for="image" id="file-label">Select an image</label>
                                         </div>
                                     </div>
                                     <div class="form-group image-container">

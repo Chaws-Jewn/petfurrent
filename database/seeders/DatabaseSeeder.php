@@ -34,7 +34,10 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
         ]);
 
-        Dog::factory(10)->create();
+        Dog::factory(20)->create([
+            'adopted' => 0
+        ]);
+        
         Petcare::factory(12)->create();
     }
 }

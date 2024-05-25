@@ -63,15 +63,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('/admin/completed-orders', [DogController::class, 'completedAdoption'])->name('admin.completedAdoption')->middleware('isAdmin');
 
 route::resource('admin', DogController::class)->middleware('isAdmin');
-Route::put('/admin/{admin}', [DogController::class, 'update'])->name('admin.update');
+// Route::put('/admin/{admin}', [DogController::class, 'update'])->name('admin.update');
 Route::get('/admin/admin-home', [App\Http\Controllers\DogController::class, 'showAdopts'])->name('admin.admin-home')->middleware('isAdmin'); // ORIGINAL
 Route::put('/admin/updateStatus/{adopt}', [DogController::class, 'updateStatus'])->name('admin.updateStatus');
+Route::put('/admin/declineStatus/{adopt}', [AdoptController::class, 'declineStatus'])->name('admin.declineStatus');
 Route::get('/admin/home', [AdminController::class, 'adminHome'])->name('admin.home');
 
 
-Route::get('/admin/{dog}/edit', [DogController::class, 'edit'])->name('admin.edit')->middleware('isAdmin');
-Route::put('/admin/{dog}/update', [DogController::class, 'update'])->name('admin.update')->middleware('isAdmin');
-Route::delete('/admin/{id}', [DogController::class, 'destroy'])->name('admin.destroy');
+Route::get('/admin/{id}/edit', [DogController::class, 'edit'])->name('admin.edit')->middleware('isAdmin');
+Route::put('/admin/{id}/update', [DogController::class, 'update'])->name('admin.update')->middleware('isAdmin');
+Route::delete('/admin/{id}/delete', [DogController::class, 'destroy'])->name('admin.destroy');
 
 
 // Route::resource('admin', AdoptController::class)->only(['update']);

@@ -57,9 +57,9 @@
                 <label for="">User Email:</label>
                 <input type="text" class="form-control" value="{{ $adopt->user->email ?? 'N/A' }}" readonly>
 
-                <label for="">Breed:</label>
-                <!-- lalo -->
-                <input type="text" class="form-control" value="{{ optional($adopt->dog)->breed ?? 'N/A' }}" readonly>
+                <label for="">Pet Name:</label>
+                <input type="text" class="form-control" value="{{ $adopt->dog->name ?? 'N/A' }}" readonly>
+                
             </div>
         </li>
         <hr>

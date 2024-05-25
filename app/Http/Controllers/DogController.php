@@ -111,7 +111,7 @@ class DogController extends Controller
 
     public function show()
     {
-        $dogs = Dog::all(); // This retrieves all the dog records on the dogs table from the database
+        $dogs = Dog::where('adopted', false); // This retrieves all the dog records on the dogs table from the database
         return view('admin.show-dog', compact('dogs')); // This passes the retrieved information of the dogs to the show-dog blade file to list all the added/posted dogs
     }
 
@@ -135,9 +135,10 @@ class DogController extends Controller
 
                 // If a dog corresponds with the adopt record
                 if ($dog) {
-                    Storage::delete('dog/' . $dog->image); // Delete the dog image from the storage (public directory)
-                    $dog->delete();                        // Delete the record of the associated dog from the database
-
+                    // Storage::delete('dog/' . $dog->image); // Delete the dog image from the storage (public directory)
+                    // $dog->delete();  
+                    $dog->adopted = true;                      // Delete the record of the associated dog from the database
+                    $dog->save();
                     // Redirect to the 'completedAdoption' route
                     return redirect()->route('admin.completedAdoption')->with('success', 'Status updated successfully, and dog deleted.');
                 }
@@ -170,6 +171,8 @@ class DogController extends Controller
             // If the adopt_status is Processing (changed by the admin), the color on the dropdown returns 'blue'
             case 'Processing':
                 return 'blue';
+            case 'Declined':
+                return 'red';
             // If the adopt_status is Completed (changed by the admin), the color on the dropdown returns 'green'
             case 'Completed':
                 return 'green';
@@ -218,8 +221,7 @@ class DogController extends Controller
 
         // This checks if there is a dog record
         if ($dog) {
-            // This perform a soft delete on the dog record if the status is completed. This removes the dogs to the user dashboard so it won't be available to other users 
-            $dog->delete();
+            $dog->adopted = true;
             
             // Redirect to the 'admin.index' (admin dashboard)
             return redirect()->route('admin.index');

@@ -80,7 +80,7 @@
                             </thead>
                             <tbody>
                                 <!-- Loop for each adoption record -->
-                                @foreach ($adopts->where('adopt_status', '!=', 'Completed') as $adopt)
+                                @foreach ($adopts->where('adopt_status', 'Pending') as $adopt)
                                 <tr>
                                     <td class="text-center">{{ $adopt->id }}</td>
                                     <td class="text-center">{{ $adopt->user->name }} {{ $adopt->user->fname }}</td>

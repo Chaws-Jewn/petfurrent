@@ -36,6 +36,17 @@ public function updateStatus(Request $request, Adopt $adopt)
     return redirect()->route('admin.admin-home')->with('success', 'Adoption status updated successfully!');
 }
 
+public function declineStatus(Request $request, Adopt $adopt)
+{
+    $request->validate([
+        'status' => 'required|in:Processing,Completed,Declined',
+    ]);
+
+    $adopt->update(['adopt_status' => $request->input('status')]);
+
+    return redirect()->route('admin.admin-home')->with('success', 'Adoption status updated successfully!');
+}
+
 /*
     public function updateStatus(Request $request, Adopt $adopt)
     {

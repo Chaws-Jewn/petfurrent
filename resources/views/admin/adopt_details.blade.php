@@ -139,12 +139,20 @@
 
     <!-- Complete Button Form -->
     @if ($adopt->adopt_status !== 'Completed')
-    <form action="{{ route('adopts.updateStatus', ['adopt' => $adopt, 'status' => 'Completed']) }}" method="post" onsubmit="return confirm('Are you sure you want to mark this adoption as completed?');">
-    @csrf
-    @method('PUT')
-    <button type="submit" class="btn btn-success">Complete Adoption</button>
-</form>
+        <form action="{{ route('admin.declineStatus', ['adopt' => $adopt, 'status' => 'Declined']) }}" method="post" onsubmit="return confirm('Are you sure you want to decline this adoption?');">
+        @csrf
+        @method('PUT')
+        <button type="submit" class="btn btn-success">Mark as Ineligible</button>
+        </form>
+    @endif
 
+    <!-- Complete Button Form -->
+    @if ($adopt->adopt_status !== 'Completed')
+        <form action="{{ route('adopts.updateStatus', ['adopt' => $adopt, 'status' => 'Completed']) }}" method="post" onsubmit="return confirm('Are you sure you want to mark this adoption as completed?');">
+        @csrf
+        @method('PUT')
+        <button type="submit" class="btn btn-success">Complete Adoption</button>
+        </form>
     @endif
 </div>
         </div>
