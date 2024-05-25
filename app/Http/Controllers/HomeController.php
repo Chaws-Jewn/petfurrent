@@ -23,22 +23,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        // if (Auth::check()) {
-        //     // If logged in, redirect to the about_home view
-        //     return redirect()->route('about_home');
-        // }
+    public function index(){
 
-        $dogs = Dog::all();     // This retrieve all dog records from the dogs table
-        //$dogs = Dog::paginate(3);
+        $dogs = Dog::where('adopted', false);   
         return view('home', compact('dogs')); // Return the 'home' view (user dashboard) and passing the retrieved dog records
     }
 
 
     public function home()
     {
-        $dogs = Dog::all();
+        $dogs = Dog::where('adopted', false); 
         return view('home', compact('dogs'));
     }
 
@@ -134,9 +128,9 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        $dogs = Dog::whereNull('deleted_at')->get();  // This retrieve all dog records where 'deleted_at' is null
+        $dogs = Dog::where('adopted', false)->get();  // This retrieve all dog records where 'deleted_at' is null
 
-        return view('home', ['dogs' => $dogs]);
+        return view('home', compact('dogs'));
     }
         // Displaying details
         public function showDetails(Dog $dog)
