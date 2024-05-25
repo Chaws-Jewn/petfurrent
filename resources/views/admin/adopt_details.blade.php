@@ -28,7 +28,7 @@
         <div class="grid-item bold">User ID:</div>
         <div class="grid-item">{{ $adopt->user->id }}</div>
         <div class="grid-item bold">Account Name:</div>
-        <div class="grid-item">{{ $adopt->user->name }}</div>
+        <div class="grid-item">{{ $adopt->user->fname }} {{ $adopt->user->lname }}</div>
         <div class="grid-item bold">Email:</div>
         <div class="grid-item">{{ $adopt->user->email }}</div>
 
@@ -95,14 +95,6 @@
 
         <div class="dog-info container-fluid" style="margin: 20px; padding: 20px; display: flex; flex-direction: column; align-items: center;">
 
-               <!-- Processing Button Form -->
-    @if ($adopt->adopt_status !== 'Processing')
-        <form action="{{ route('adopts.updateStatus', ['adopt' => $adopt, 'status' => 'Processing']) }}" method="post" style="margin-bottom: 10px;">
-            @csrf
-            @method('PUT')
-            <button type="submit" class="btn btn-warning">Mark as Processing</button>
-        </form>
-    @endif
         </div>
         <!-- Adopted Dog Information Part -->
         <div class="dog-info container-fluid" style="background: white; margin: 20px; padding: 20px;">
@@ -142,7 +134,7 @@
         <form action="{{ route('admin.declineStatus', ['adopt' => $adopt, 'status' => 'Declined']) }}" method="post" onsubmit="return confirm('Are you sure you want to decline this adoption?');">
         @csrf
         @method('PUT')
-        <button type="submit" class="btn btn-success">Mark as Ineligible</button>
+        <button type="submit" class="btn btn-danger">Mark as Ineligible</button>
         </form>
     @endif
 

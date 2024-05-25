@@ -111,7 +111,7 @@ class DogController extends Controller
 
     public function show()
     {
-        $dogs = Dog::where('adopted', false); // This retrieves all the dog records on the dogs table from the database
+        $dogs = Dog::where('adopted', false)->get(); // This retrieves all the dog records on the dogs table from the database
         return view('admin.show-dog', compact('dogs')); // This passes the retrieved information of the dogs to the show-dog blade file to list all the added/posted dogs
     }
 
@@ -191,7 +191,7 @@ class DogController extends Controller
     /********************* LIST OF COMPLETED ADOPTIONS  ************************/
     public function completedAdoption()
     {
-        $completedOrders = Adopt::where('adopt_status', 'Completed')->get(); // This retrieves the adopt records that the status is already 'Completed' 
+        $completedOrders = Adopt::where('adopt_status', '!=', 'Pending')->get(); // This retrieves the adopt records that the status is already 'Completed' 
 
         return view('admin.completed-orders', compact('completedOrders')); // This passes the retrieved completed adoption to the 'admin.completed-orders'
     }

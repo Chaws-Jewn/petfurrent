@@ -90,7 +90,7 @@
                                     <td>{{$dog->breed}}</td>
                                     <td>{{$dog->gender}}</td>
                                     <td>{{ implode(' ', array_slice(explode(' ', $dog->description), 0, 3)) . '...' }}</td>
-                                    <td>
+                                    <td class="image">
                                         <!-- Display the uploaded dog's image -->
                                         @if ($dog->image != null)
                                             <img class="image_size" src="/dog/{{ $dog->image }}" alt="{{ $dog->name }} Image">

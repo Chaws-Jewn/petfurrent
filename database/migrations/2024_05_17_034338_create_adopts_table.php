@@ -23,10 +23,10 @@ return new class extends Migration
             $table->string('street');
             $table->string('city');
             $table->string('adopt_status')->default('Pending');
+            $table->string('remarks')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->boolean('user_image')->default(0);
-    
+
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('dogs_id')->references('id')->on('dogs');
         });

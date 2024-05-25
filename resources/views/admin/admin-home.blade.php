@@ -103,12 +103,6 @@
                                                 <option value="Not Eligible" {{ $adopt->adopt_status === 'Not Eligible' ?
                                                     'selected' : '' }}>Not Eligible</option>
 
-                                                <option value="Not Available" {{ $adopt->adopt_status === 'Not Available' ?
-                                                    'selected' : '' }}>Not Available</option>
-
-                                                <option value="Processing" {{ $adopt->adopt_status === 'Processing'
-                                                    ? 'selected' : '' }}>Processing</option>
-
                                                 <option value="Completed" {{ $adopt->adopt_status === 'Completed' ?
                                                     'selected' : '' }}>Completed</option>
                                                     
